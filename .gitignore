@@ -1,15 +1,39 @@
-*.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
+# Android/Gradle
+.gradle/
+**/build/
+**/captures/
+.externalNativeBuild/
+.cxx/
+
+# Local config
 local.properties
+/local.properties
+*.keystore
+*.jks
+*.p12
+*.pem
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs/temps
+*.log
+*.tmp
+
+# Outputs
+*.apk
+*.ap_
+*.aab
+
+# Keep wrapper and scripts
+!gradlew
+!gradlew.bat
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
