@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:paddingTop="24dp">
+
+    <TextView
+        android:id="@+id/headerTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:fontFamily="sans-serif-medium"
+        android:letterSpacing="0.02"
+        android:textColor="?android:textColorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/maxNumberInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/highest_number_hint"
+        android:background="@android:color/transparent"
+        app:boxBackgroundMode="outline"
+        app:boxStrokeColor="?attr/colorPrimary"
+        app:boxStrokeWidth="1dp"
+        app:boxStrokeWidthFocused="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headerTitle"
+        android:layout_marginTop="12dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/maxNumberEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:maxLines="1"
+            android:imeOptions="actionDone"
+            android:textColor="?android:textColorPrimary"
+            android:textColorHint="?android:textColorHint"
+            android:textSize="@dimen/max_input_text_size"
+            android:background="@android:color/transparent" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:id="@+id/buttonRow"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingVertical="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/maxNumberInputLayout">
+
+        <Button
+            android:id="@+id/applyButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:text="@string/apply_max" />
+
+        <Button
+            android:id="@+id/drawButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:text="@string/draw_button" />
+
+        <Button
+            android:id="@+id/resetButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/reset_button" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/lastDrawnLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/last_drawn_label"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttonRow" />
+
+    <TextView
+        android:id="@+id/lastDrawnValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/placeholder_dash"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        app:layout_constraintBaseline_toBaselineOf="@id/lastDrawnLabel"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/numbersRecycler"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:paddingVertical="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lastDrawnLabel"
+        app:layout_constraintVertical_bias="0"
+        tools:itemCount="30"
+        tools:listitem="@android:layout/simple_list_item_1" />
+
+    <TextView
+        android:id="@+id/lastDrawnOverlay"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/overlay_background"
+        android:gravity="center"
+        android:maxLines="1"
+        android:text="--"
+        android:textColor="@android:color/white"
+        android:textSize="144sp"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="48sp"
+        android:autoSizeMaxTextSize="144sp"
+        android:autoSizeStepGranularity="2sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="@id/numbersRecycler"
+        app:layout_constraintBottom_toBottomOf="@id/numbersRecycler"
+        app:layout_constraintStart_toStartOf="@id/numbersRecycler"
+        app:layout_constraintEnd_toEndOf="@id/numbersRecycler" />
+</androidx.constraintlayout.widget.ConstraintLayout>

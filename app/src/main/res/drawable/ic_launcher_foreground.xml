@@ -1,0 +1,26 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Teal outer chip -->
+    <path
+        android:fillColor="#26A69A"
+        android:pathData="M54,12c-23.196,0 -42,18.804 -42,42s18.804,42 42,42 42,-18.804 42,-42 -18.804,-42 -42,-42z" />
+    <!-- Inner ring -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,22c-17.12,0 -31,13.88 -31,31s13.88,31 31,31 31,-13.88 31,-31 -13.88,-31 -31,-31z" />
+    <!-- Inner accent ring -->
+    <path
+        android:fillColor="#E0F2F1"
+        android:pathData="M54,28c-13.255,0 -24,10.745 -24,24s10.745,24 24,24 24,-10.745 24,-24 -10.745,-24 -24,-24z" />
+    <!-- Star marker -->
+    <path
+        android:fillColor="#26A69A"
+        android:pathData="M54,34l6.9,14.1 15.6,1.1 -12,10.3 3.6,15.5 -14.1,-8.2 -14.1,8.2 3.6,-15.5 -12,-10.3 15.6,-1.1z" />
+    <!-- Pips -->
+    <path android:fillColor="#26A69A" android:pathData="M28,32m-4,0a4,4 0 1,0 8,0a4,4 0 1,0 -8,0" />
+    <path android:fillColor="#26A69A" android:pathData="M82,34m-4,0a4,4 0 1,0 8,0a4,4 0 1,0 -8,0" />
+    <path android:fillColor="#26A69A" android:pathData="M28,78m-4,0a4,4 0 1,0 8,0a4,4 0 1,0 -8,0" />
+</vector>
