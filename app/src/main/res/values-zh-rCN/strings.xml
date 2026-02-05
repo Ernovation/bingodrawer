@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Bingo Drawer</string>
+    <string name="highest_number_hint">最大抽取号码</string>
+    <string name="apply_max">应用</string>
+    <string name="draw_button">抽取</string>
+    <string name="reset_button">重置</string>
+    <string name="last_drawn_label">上次抽取</string>
+    <string name="placeholder_dash">-</string>
+    <string name="drawn_numbers_label">已抽取的号码</string>
+    <string name="no_numbers_drawn">尚未抽取号码</string>
+    <string name="invalid_max_input">请输入正的最大号码。</string>
+    <string name="set_max_first">请先设置最大号码。</string>
+    <string name="all_numbers_drawn">所有号码都已抽取。</string>
+    <string name="reset_dialog_title">重置会话？</string>
+    <string name="reset_dialog_message">这将清除所有已抽取的号码。</string>
+    <string name="reset_dialog_confirm">重置</string>
+    <string name="reset_dialog_cancel">取消</string>
+    <string name="session_reset_toast">会话已重置。</string>
+    <string name="drew_number_toast">抽取：%1$d</string>
+</resources>

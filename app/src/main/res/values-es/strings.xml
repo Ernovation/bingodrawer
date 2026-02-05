@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Bingo Drawer</string>
+    <string name="highest_number_hint">Número máximo a sacar</string>
+    <string name="apply_max">Aplicar</string>
+    <string name="draw_button">Sacar</string>
+    <string name="reset_button">Reiniciar</string>
+    <string name="last_drawn_label">Último número</string>
+    <string name="placeholder_dash">-</string>
+    <string name="drawn_numbers_label">Números extraídos</string>
+    <string name="no_numbers_drawn">Aún no se han extraído números</string>
+    <string name="invalid_max_input">Introduce un número máximo positivo.</string>
+    <string name="set_max_first">Primero establece el número máximo.</string>
+    <string name="all_numbers_drawn">Se han extraído todos los números.</string>
+    <string name="reset_dialog_title">¿Reiniciar sesión?</string>
+    <string name="reset_dialog_message">Esto borrará todos los números extraídos.</string>
+    <string name="reset_dialog_confirm">Reiniciar</string>
+    <string name="reset_dialog_cancel">Cancelar</string>
+    <string name="session_reset_toast">Sesión reiniciada.</string>
+    <string name="drew_number_toast">Extraído: %1$d</string>
+</resources>

@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Bingo Drawer</string>
+    <string name="highest_number_hint">Hoogste nummer om te trekken</string>
+    <string name="apply_max">Toepassen</string>
+    <string name="draw_button">Trekken</string>
+    <string name="reset_button">Resetten</string>
+    <string name="last_drawn_label">Laatst getrokken</string>
+    <string name="placeholder_dash">-</string>
+    <string name="drawn_numbers_label">Getrokken nummers</string>
+    <string name="no_numbers_drawn">Nog geen nummers getrokken</string>
+    <string name="invalid_max_input">Voer een positief hoogste nummer in.</string>
+    <string name="set_max_first">Stel eerst het hoogste nummer in.</string>
+    <string name="all_numbers_drawn">Alle nummers zijn getrokken.</string>
+    <string name="reset_dialog_title">Sessie resetten?</string>
+    <string name="reset_dialog_message">Dit verwijdert alle getrokken nummers.</string>
+    <string name="reset_dialog_confirm">Resetten</string>
+    <string name="reset_dialog_cancel">Annuleren</string>
+    <string name="session_reset_toast">Sessie gereset.</string>
+    <string name="drew_number_toast">Getrokken: %1$d</string>
+</resources>
