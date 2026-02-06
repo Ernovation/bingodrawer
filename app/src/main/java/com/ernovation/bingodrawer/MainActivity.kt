@@ -1,19 +1,18 @@
 package com.ernovation.bingodrawer
 
 import android.app.AlertDialog
-import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.animation.DecelerateInterpolator
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.edit
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
 import com.ernovation.bingodrawer.databinding.ActivityMainBinding
-import com.ernovation.bingodrawer.spanFor
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
@@ -48,9 +47,10 @@ class MainActivity : AppCompatActivity() {
 
         loadPersistentState()
         restoreState(savedInstanceState)
+        val oldMax = adapter.itemCount
         adapter.updateMax(maxNumber)
         updateGridSpan()
-        adapter.notifyDataSetChanged()
+        rebindNumbers(oldMax, maxNumber)
         toggleMaxInputs(!maxApplied)
         updateInteractionState()
         updateOverview()
@@ -77,13 +77,14 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, R.string.invalid_max_input, Toast.LENGTH_SHORT).show()
             return
         }
+        val oldMax = adapter.itemCount
         maxNumber = value
         maxApplied = true
         drawnNumbers.clear()
         lastDrawn = null
         adapter.updateMax(maxNumber)
         updateGridSpan()
-        adapter.notifyDataSetChanged()
+        rebindNumbers(oldMax, maxNumber)
         toggleMaxInputs(false)
         updateInteractionState()
         updateOverview()
@@ -121,11 +122,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun resetSession() {
+        val oldMax = adapter.itemCount
         drawnNumbers.clear()
         lastDrawn = null
         adapter.updateMax(maxNumber)
         updateGridSpan()
-        adapter.notifyDataSetChanged()
+        rebindNumbers(oldMax, maxNumber)
         ensureDefaultMaxInput()
         maxApplied = false
         toggleMaxInputs(true)
@@ -144,6 +146,7 @@ class MainActivity : AppCompatActivity() {
         if (savedInstanceState == null) {
             return
         }
+        val oldMax = adapter.itemCount
         maxNumber = savedInstanceState.getInt(KEY_MAX_NUMBER, 0)
         val restoredDrawn = savedInstanceState.getIntegerArrayList(KEY_DRAWN_NUMBERS)
         drawnNumbers.clear()
@@ -158,7 +161,7 @@ class MainActivity : AppCompatActivity() {
         }
         adapter.updateMax(maxNumber)
         updateGridSpan()
-        adapter.notifyDataSetChanged()
+        rebindNumbers(oldMax, maxNumber)
         maxApplied = savedInstanceState.getBoolean(KEY_MAX_APPLIED, false)
         toggleMaxInputs(!maxApplied)
         updateInteractionState()
@@ -251,18 +254,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun hideKeyboard() {
-        val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
+        val imm = getSystemService(INPUT_METHOD_SERVICE) as? InputMethodManager
         imm?.hideSoftInputFromWindow(binding.maxNumberEdit.windowToken, 0)
     }
 
     private fun savePersistentState() {
-        prefs().edit()
-            .putInt(KEY_MAX_NUMBER, maxNumber)
-            .putBoolean(KEY_MAX_APPLIED, maxApplied)
-            .putInt(KEY_LAST_DRAWN, lastDrawn ?: STATE_EMPTY_LAST)
-            .putString(KEY_MAX_INPUT, binding.maxNumberEdit.text?.toString() ?: "")
-            .putString(KEY_DRAWN_NUMBERS, drawnNumbers.joinToString(","))
-            .apply()
+        prefs().edit {
+            putInt(KEY_MAX_NUMBER, maxNumber)
+                .putBoolean(KEY_MAX_APPLIED, maxApplied)
+                .putInt(KEY_LAST_DRAWN, lastDrawn ?: STATE_EMPTY_LAST)
+                .putString(KEY_MAX_INPUT, binding.maxNumberEdit.text?.toString() ?: "")
+                .putString(KEY_DRAWN_NUMBERS, drawnNumbers.joinToString(","))
+        }
     }
 
     private fun loadPersistentState() {
@@ -285,10 +288,21 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun clearPersistentState() {
-        prefs().edit().clear().apply()
+        prefs().edit { clear() }
     }
 
-    private fun prefs(): SharedPreferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+    private fun prefs(): SharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
+
+    private fun rebindNumbers(oldMax: Int, newMax: Int) {
+        val common = minOf(oldMax, newMax)
+        if (common > 0) {
+            adapter.notifyItemRangeChanged(0, common)
+        }
+        when {
+            newMax > oldMax -> adapter.notifyItemRangeInserted(oldMax, newMax - oldMax)
+            newMax < oldMax -> adapter.notifyItemRangeRemoved(newMax, oldMax - newMax)
+        }
+    }
 
     companion object {
         private const val KEY_MAX_NUMBER = "key_max_number"
