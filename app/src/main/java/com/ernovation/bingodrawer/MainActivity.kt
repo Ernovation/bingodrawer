@@ -13,6 +13,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
 import com.ernovation.bingodrawer.databinding.ActivityMainBinding
+import com.ernovation.bingodrawer.spanFor
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
@@ -171,13 +172,6 @@ class MainActivity : AppCompatActivity() {
         } else {
             manager.spanCount = newSpan
         }
-    }
-
-    private fun spanFor(max: Int): Int = when {
-        max <= 10 -> 4
-        max <= 30 -> 6
-        max <= 60 -> 8
-        else -> 10
     }
 
     private fun ensureDefaultMaxInput() {

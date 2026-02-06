@@ -9,7 +9,6 @@ A simple, accessible bingo number drawer. Set your highest number, draw without 
 - Grid overview: drawn numbers are highlighted in the grid; undrawn numbers stay visible.
 - Session control: reset with confirmation to start a fresh round.
 - State persistence: your max, draws, and last number are restored after closing the app.
-- Adaptive UI: works in light/dark themes; input hides after applying your max, reappears on reset.
 
 ## How to play
 1) Enter the highest number you want to include (e.g., 70) and tap **Apply**.
