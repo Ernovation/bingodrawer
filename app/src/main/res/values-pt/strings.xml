@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Bingo Drawer</string>
+    <string name="highest_number_hint">Maior número a sortear</string>
+    <string name="apply_max">Aplicar</string>
+    <string name="draw_button">Sortear</string>
+    <string name="reset_button">Reiniciar</string>
+    <string name="last_drawn_label">Último sorteado</string>
+    <string name="placeholder_dash">-</string>
+    <string name="drawn_numbers_label">Números sorteados</string>
+    <string name="no_numbers_drawn">Nenhum número sorteado ainda</string>
+    <string name="invalid_max_input">Informe um número máximo positivo.</string>
+    <string name="set_max_first">Defina o número máximo primeiro.</string>
+    <string name="all_numbers_drawn">Todos os números foram sorteados.</string>
+    <string name="reset_dialog_title">Reiniciar sessão?</string>
+    <string name="reset_dialog_message">Isso limpa todos os números sorteados.</string>
+    <string name="reset_dialog_confirm">Reiniciar</string>
+    <string name="reset_dialog_cancel">Cancelar</string>
+    <string name="session_reset_toast">Sessão reiniciada.</string>
+    <string name="drew_number_toast">Sorteado: %1$d</string>
+</resources>

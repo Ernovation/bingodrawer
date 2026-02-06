@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Bingo Drawer</string>
+    <string name="highest_number_hint">Høyeste tall som skal trekkes</string>
+    <string name="apply_max">Bruk</string>
+    <string name="draw_button">Trekk</string>
+    <string name="reset_button">Nullstill</string>
+    <string name="last_drawn_label">Sist trukket</string>
+    <string name="placeholder_dash">-</string>
+    <string name="drawn_numbers_label">Trukne tall</string>
+    <string name="no_numbers_drawn">Ingen tall trukket ennå</string>
+    <string name="invalid_max_input">Oppgi et positivt høyeste tall.</string>
+    <string name="set_max_first">Sett høyeste tall først.</string>
+    <string name="all_numbers_drawn">Alle tall er trukket.</string>
+    <string name="reset_dialog_title">Nullstill økt?</string>
+    <string name="reset_dialog_message">Dette fjerner alle trukne tall.</string>
+    <string name="reset_dialog_confirm">Nullstill</string>
+    <string name="reset_dialog_cancel">Avbryt</string>
+    <string name="session_reset_toast">Økten er nullstilt.</string>
+    <string name="drew_number_toast">Trukket: %1$d</string>
+</resources>
